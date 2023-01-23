@@ -3,6 +3,7 @@ import 'package:groceries_provider/provider/provider_func.dart';
 
 import 'favorites.dart';
 import 'package:provider/provider.dart';
+
 class Groceries extends StatefulWidget {
   const Groceries({Key? key}) : super(key: key);
 
@@ -14,7 +15,7 @@ class _GroceriesState extends State<Groceries> {
   @override
   Widget build(BuildContext context) {
     bool checkboxvalue = false;
-    final p=Provider.of<Providerfunction>(context);
+    final p = Provider.of<Providerfunction>(context);
     List words = [
       'time',
       'year',
@@ -30,8 +31,9 @@ class _GroceriesState extends State<Groceries> {
       'school'
     ];
     return Scaffold(
-        appBar: AppBar(
-        title: Center(child: Text("Groceries ")),),
+      appBar: AppBar(
+        title: Center(child: Text("Groceries ")),
+      ),
       body: ListView.builder(
           itemCount: words.length,
           itemBuilder: (BuildContext context, int index) {
@@ -44,12 +46,9 @@ class _GroceriesState extends State<Groceries> {
                   children: [
                     Text("${words[index]}"),
                     Checkbox(
-                        value:p.symbol(words[index]),
+                        value: p.symbol(words[index]),
                         onChanged: (bool? value) {
-                           p.toggleFavorite(words[index]);
-
-
-
+                          p.toggleFavorite(words[index]);
                         }),
                   ],
                 ),
@@ -63,16 +62,6 @@ class _GroceriesState extends State<Groceries> {
         },
         label: Text("Favorites"),
       ),
-
-
-
     );
   }
 }
-
-
-
-
-
-
-
